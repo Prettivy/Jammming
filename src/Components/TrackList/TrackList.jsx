@@ -6,7 +6,7 @@ const TrackList = ({tracks,onAdd,log,isRemoval,removeTrack})=>{
         <div className="TrackList">
             {/* <!-- You will add a map method that renders a set of Track components  --> 
             Enlever le log*/}
-            { console.log(log)}            
+            { console.log(tracks)}            
             {
                 tracks.map(track=>{
                 return (

@@ -2,7 +2,7 @@ import TrackList from '../TrackList/TrackList'
 import './Playlist.css'
 
 
-const Playlist = ({playlistTracks,removeTrack,onNameChange})=>{
+const Playlist = ({playlistTracks,removeTrack,onNameChange,onSave})=>{
     const handleNameChange = event =>{
         onNameChange(event.target.value)
     }
@@ -14,7 +14,7 @@ const Playlist = ({playlistTracks,removeTrack,onNameChange})=>{
             // <TrackList />
             }
             <TrackList tracks={playlistTracks} log='playlist' isRemoval={isRemoval} removeTrack={removeTrack}/>
-            <button className="Playlist-save">SAVE TO SPOTIFY</button>
+            <button className="Playlist-save" onClick={onSave}>SAVE TO SPOTIFY</button>
         </div>  
     )
 }
