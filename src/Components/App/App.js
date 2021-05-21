@@ -7,7 +7,7 @@ import Playlist from '../Playlist/Playlist'
 
 
 function App() {
-  // Track Object
+  // Track Object pour test
   const trackObj = [{
     name: 'TestObject',
     artist: 'TestArtist',
@@ -19,9 +19,10 @@ function App() {
     album: 'TheTest2',
     id: 1,
   }]
-  const playlistName = 'Test'
+  
   const [playlistTracks,setPlaylistTracks] = useState([])
   const [searchResults,setSearchResult] = useState(trackObj)
+  const [playlistName,setPlaylistName] = useState('My Playlist')
   
   const addTrack = (track)=>{
     if(playlistTracks.length===0){
@@ -45,6 +46,11 @@ function App() {
     setPlaylistTracks(playlist)
   }
 
+  const updatePlaylistName = (name)=>{
+      setPlaylistName(name)
+  }
+
+
   return (
     <div>
       <h1>Ja<span className="highlight">mmm</span>ing</h1>
@@ -56,7 +62,7 @@ function App() {
           Voir si je dois passer le set ou searchResult directement*/}
           <SearchResults searchResults={searchResults} onAdd={addTrack} />
           {/* {<!-- Add a Playlist component -->} */}
-          <Playlist playlistName={playlistName} playlistTracks={playlistTracks} removeTrack={removeTrack}/>
+          <Playlist playlistName={playlistName} playlistTracks={playlistTracks} removeTrack={removeTrack} onNameChange={updatePlaylistName}/>
         </div>
       </div>
     </div>

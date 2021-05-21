@@ -2,11 +2,14 @@ import TrackList from '../TrackList/TrackList'
 import './Playlist.css'
 
 
-const Playlist = ({playlistTracks,removeTrack})=>{
+const Playlist = ({playlistTracks,removeTrack,onNameChange})=>{
+    const handleNameChange = event =>{
+        onNameChange(event.target.value)
+    }
     const isRemoval = true
     return (
         <div className="Playlist">
-            <input defaultValue={"New Playlist"}/>
+            <input defaultValue={"New Playlist"} onChange={handleNameChange}/>
             {/* <!-- Add a TrackList component --> */
             // <TrackList />
             }
