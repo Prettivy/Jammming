@@ -68,7 +68,7 @@ function App() {
   const search = (search)=>{
     const result = Spotify.search(search)
     setSearchResults(result)
-    console.log('SearchResult: ',searchResults)
+    console.log('SearchResult :',searchResults)
   }
   // Cette étape n'a pas été demandé mais c'est pour tester le fonctionnement de l'api
   Spotify.getAccessToken()

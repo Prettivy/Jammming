@@ -1,6 +1,3 @@
-// Client ID : f03c1febe43a4fd6986005b1342747b4
-// Client Secret : 80fa77b9d3f74cfea88c7339886ca6db
-// Test : 
 const CLIENT_ID = 'f03c1febe43a4fd6986005b1342747b4'
 const REDIRECT_URI = "http://localhost:3000/"
 
@@ -56,17 +53,21 @@ const Spotify = {
         
         fetch('https://api.spotify.com/v1/me',{headers: headers})
         .then(response=>response.json())
-        .then(data=>{user_id = data.id
+        .then(data=>{
+            user_id = data.id
+            console.log(data)
+            console.log('user ',user_id)
             return fetch(`https://api.spotify.com/v1/users/${user_id}/playlists`,{
                 method:'POST',
                 headers:headers,
                 body:{
-                    name : playlistName
+                    name : JSON.stringify(playlistName)
                 }
             })
             .then(response=>response.json())
             .then(dataNext=>{
-                let playlistId =dataNext.id
+                console.log(dataNext)
+                let playlistId = dataNext.id
                 return fetch(`https://api.spotify.com/v1/playlists/${playlistId}/tracks`,{
                     method:'POST',
                     headers:headers,
